@@ -17,7 +17,7 @@ jobs:
         run: |
           unzip -q MiladSurveyor_PhoneBuild.zip
           ls -la MiladSurveyor
-            sed -i 's/JavaVersion.VERSION_1_8/JavaVersion.VERSION_17/g' MiladSurveyor/app/build.gradle.kts
+            find MiladSurveyor -name "build.gradle.kts" -exec sed -i 's/VERSION_1_8/VERSION_17/g' {} \;
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
